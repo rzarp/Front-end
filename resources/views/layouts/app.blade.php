@@ -90,7 +90,6 @@
                                     <li><a href="/shop">Sell online</a></li>
                                     <li><a href="/shop">Features</a></li>
                                     <li><a href="/cart">Shopping cart</a></li>
-                                    <li><a href="/shop">Store builder</a></li>
                                 </ul>
                             </div>
                             <div class="col-md-6 col-lg-4">

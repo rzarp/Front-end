@@ -41,8 +41,4 @@ class HomeController extends Controller
     {
         return view('invoice');
     }
-    public function login()
-    {
-        return view('login');
-    }
 }

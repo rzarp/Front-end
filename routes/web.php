@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['prefix'=>'/'], function() {
+Route::group(['prefix' => '/'], function () {
     Route::get('/', 'HomeController@index');
     Route::get('/shop', 'HomeController@shop');
     Route::get('/contact', 'HomeController@contact');
@@ -22,5 +22,18 @@ Route::group(['prefix'=>'/'], function() {
     Route::get('/cart', 'HomeController@cart');
     Route::get('/checkout', 'HomeController@checkout');
     Route::get('/invoice', 'HomeController@invoice');
-    Route::get('/login', 'HomeController@login');
+});
+
+Route::group(['prefix' => 'login'], function () {
+    Route::get('/', 'Auth\AuthController@login')->name('login');
+    Route::post('/', 'Auth\AuthController@authenticate');
+    Route::post('/logout', 'Auth\AuthController@logout')->name('logout');
+});
+
+Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']], function () {
+    Route::get('/', 'DashboardController@index');
+});
+
+Route::group(['prefix' => 'products', 'middleware' => ['auth']], function () {
+    Route::get('/', 'ProductController@index');
 });
