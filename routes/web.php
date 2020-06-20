@@ -30,10 +30,17 @@ Route::group(['prefix' => 'login'], function () {
     Route::post('/logout', 'Auth\AuthController@logout')->name('logout');
 });
 
-Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']], function () {
-    Route::get('/', 'DashboardController@index');
+Route::group(['middleware' => ['auth']], function () {
+    Route::group(['prefix' => 'dashboard'], function () {
+        Route::get('/', 'DashboardController@index');
+    });
+    
+    Route::group(['prefix' => 'products'], function () {
+        Route::get('/', 'ProductController@index');
+    });
 });
 
-Route::group(['prefix' => 'products', 'middleware' => ['auth']], function () {
-    Route::get('/', 'ProductController@index');
+Route::group(['prefix' => 'datatables'], function () {
+    Route::post('/products', 'DatatableController@products');
 });
+
