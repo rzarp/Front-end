@@ -37,6 +37,8 @@ Route::group(['middleware' => ['auth']], function () {
     
     Route::group(['prefix' => 'products'], function () {
         Route::get('/', 'ProductController@index');
+        Route::get('/{form}/{id?}', 'ProductController@form');
+        Route::post('/store', 'ProductController@store');
     });
 });
 

@@ -24,7 +24,7 @@
                 <div class="p-2 bd-highlight">
                     <div class="btn-group shadow" role="group" aria-label="Basic example">
                         <button type="button" class="btn btn-sm btn-primary refresh-button"><i class="fas fa-sync"></i></button>
-                        <button type="button" class="btn btn-sm btn-primary"><i class="fas fa-plus"></i></button>
+                        <a href="{{ url('products/create') }}" class="btn btn-sm btn-primary"><i class="fas fa-plus"></i></a>
                     </div>
                 </div>
             </div>
